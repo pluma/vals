@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="vals : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>vals</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pluma/vals">View on GitHub</a>
+
+          <h1 id="project_title">vals</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pluma/vals/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pluma/vals/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="synopsis" class="anchor" href="#synopsis"><span class="octicon octicon-link"></span></a>Synopsis</h1>
+
+<p><strong>vals</strong> is a utility library for extracting property values from an object with support for safe nested property lookup.</p>
+
+<p><a href="https://ci.testling.com/pluma/vals"><img src="https://ci.testling.com/pluma/vals.png" alt="browser support"></a></p>
+
+<p><a href="https://travis-ci.org/pluma/vals"><img src="https://travis-ci.org/pluma/vals.png?branch=master" alt="Build Status"></a> <a href="http://badge.fury.io/js/vals"><img src="https://badge.fury.io/js/vals.png" alt="NPM version"></a> <a href="https://david-dm.org/pluma/vals"><img src="https://david-dm.org/pluma/vals.png" alt="Dependencies"></a></p>
+
+<h1>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h1>
+
+<h2>
+<a name="nodejs" class="anchor" href="#nodejs"><span class="octicon octicon-link"></span></a>Node.js</h2>
+
+<h3>
+<a name="with-npm" class="anchor" href="#with-npm"><span class="octicon octicon-link"></span></a>With NPM</h3>
+
+<div class="highlight highlight-sh"><pre>npm install vals
+</pre></div>
+
+<h3>
+<a name="from-source" class="anchor" href="#from-source"><span class="octicon octicon-link"></span></a>From source</h3>
+
+<div class="highlight highlight-sh"><pre>git clone https://github.com/pluma/vals.git
+<span class="nb">cd </span>vals
+npm install
+make
+</pre></div>
+
+<h2>
+<a name="browser" class="anchor" href="#browser"><span class="octicon octicon-link"></span></a>Browser</h2>
+
+<h3>
+<a name="with-component" class="anchor" href="#with-component"><span class="octicon octicon-link"></span></a>With component</h3>
+
+<div class="highlight highlight-sh"><pre>component install pluma/vals
+</pre></div>
+
+<p><a href="https://github.com/component/component">Learn more about component</a>.</p>
+
+<h3>
+<a name="with-bower" class="anchor" href="#with-bower"><span class="octicon octicon-link"></span></a>With bower</h3>
+
+<div class="highlight highlight-sh"><pre>bower install vals
+</pre></div>
+
+<p><a href="https://github.com/twitter/bower">Learn more about bower</a>.</p>
+
+<h3>
+<a name="with-a-commonjs-module-loader" class="anchor" href="#with-a-commonjs-module-loader"><span class="octicon octicon-link"></span></a>With a CommonJS module loader</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/vals/master/dist/vals.min.js">latest minified CommonJS release</a> and add it to your project.</p>
+
+<p><a href="http://wiki.commonjs.org/wiki/Modules/1.1">Learn more about CommonJS modules</a>.</p>
+
+<h3>
+<a name="with-an-amd-module-loader" class="anchor" href="#with-an-amd-module-loader"><span class="octicon octicon-link"></span></a>With an AMD module loader</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/vals/master/dist/vals.amd.min.js">latest minified AMD release</a> and add it to your project.</p>
+
+<p><a href="http://requirejs.org/docs/whyamd.html">Learn more about AMD modules</a>.</p>
+
+<h3>
+<a name="as-a-standalone-library" class="anchor" href="#as-a-standalone-library"><span class="octicon octicon-link"></span></a>As a standalone library</h3>
+
+<p>Download the <a href="https://raw.github.com/pluma/vals/master/dist/vals.globals.min.js">latest minified standalone release</a> and add it to your project.</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/your/js/path/vals.globals.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>This makes the <code>vals</code> module available in the global namespace.</p>
+
+<h1>
+<a name="basic-usage-example" class="anchor" href="#basic-usage-example"><span class="octicon octicon-link"></span></a>Basic usage example</h1>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">vals</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'vals'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">obj1</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="s1">'one'</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="s1">'two'</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="s1">'three'</span><span class="p">};</span>
+<span class="nx">vals</span><span class="p">(</span><span class="nx">obj1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">);</span> <span class="c1">// ['one', 'two']</span>
+
+<span class="kd">var</span> <span class="nx">obj2</span> <span class="o">=</span> <span class="p">{</span><span class="nx">foo</span><span class="o">:</span> <span class="p">{</span><span class="nx">bar</span><span class="o">:</span> <span class="p">{</span><span class="nx">qux</span><span class="o">:</span> <span class="s1">'one'</span><span class="p">,</span> <span class="nx">baz</span><span class="o">:</span> <span class="s1">'two'</span><span class="p">}}};</span>
+<span class="nx">vals</span><span class="p">(</span><span class="nx">obj2</span><span class="p">,</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'qux'</span><span class="p">]);</span> <span class="c1">// ['one']</span>
+<span class="nx">vals</span><span class="p">.</span><span class="nx">one</span><span class="p">(</span><span class="nx">obj2</span><span class="p">,</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'qux'</span><span class="p">]);</span> <span class="c1">// 'one'</span>
+<span class="nx">vals</span><span class="p">(</span><span class="nx">obj2</span><span class="p">,</span> <span class="p">[</span><span class="s1">'fail'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'qux'</span><span class="p">]);</span> <span class="c1">// [undefined]</span>
+
+<span class="kd">var</span> <span class="nx">obj3</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="nx">vals</span><span class="p">(</span><span class="nx">obj3</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'qux'</span><span class="p">]);</span> <span class="c1">// [undefined, undefined]</span>
+<span class="nx">vals</span><span class="p">.</span><span class="nx">one</span><span class="p">(</span><span class="nx">obj3</span><span class="p">,</span> <span class="s1">'foo'</span><span class="p">);</span> <span class="c1">// undefined</span>
+</pre></div>
+
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
+
+<h2>
+<a name="valsobj-pathsarray" class="anchor" href="#valsobj-pathsarray"><span class="octicon octicon-link"></span></a>vals(obj, paths…):Array</h2>
+
+<p>Extracts the property values at each given property path as an array.</p>
+
+<h2>
+<a name="valsoneobj-path" class="anchor" href="#valsoneobj-path"><span class="octicon octicon-link"></span></a>vals.one(obj, path):*</h2>
+
+<p>Attempts to extract the property value at the given property path.</p>
+
+<p>If <code>path</code> is an array, it will attempt to resolve the property path recursively.</p>
+
+<p>If the path can not be resolved fully, the return value will be <code>undefined</code>.</p>
+
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>The MIT/Expat license.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">vals maintained by <a href="https://github.com/pluma">pluma</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
