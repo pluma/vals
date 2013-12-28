@@ -1,0 +1,47 @@
+{
+  "name": "vals",
+  "version": "0.1.0",
+  "author": "Alan Plum <me@pluma.io>",
+  "description": "Extracts property values of an object.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluma/vals.git"
+  },
+  "keywords": [
+    "extract",
+    "properties",
+    "property",
+    "accessor",
+    "delve"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.16",
+    "expect.js": "~0.2",
+    "uglify-js": "~2.4",
+    "jshint": "~2.4"
+  },
+  "license": "MIT",
+  "main": "./dist/vals.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "engines": {
+    "node": ">=0.6"
+  },
+  "testling": {
+    "files": "spec/*.js",
+    "harness": "mocha",
+    "browsers": [
+      "chrome/latest",
+      "chrome/canary",
+      "firefox/3.6",
+      "firefox/latest",
+      "firefox/nightly",
+      "opera/10..latest",
+      "opera/next",
+      "safari/4..latest",
+      "ie/6..latest"
+    ]
+  }
+}

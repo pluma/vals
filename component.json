@@ -1,0 +1,24 @@
+{
+  "name": "vals",
+  "repo": "pluma/vals",
+  "description": "Extracts property values of an object.",
+  "keywords": [
+    "extract",
+    "properties",
+    "property",
+    "accessor",
+    "delve"
+  ],
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": ["dist/vals.js"],
+  "main": "./dist/vals.js",
+  "ignore": [
+    "**/.*",
+    "build",
+    "components",
+    "node_modules"
+  ],
+  "license": "MIT"
+}
