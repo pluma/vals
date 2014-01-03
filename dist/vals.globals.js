@@ -1,6 +1,6 @@
-/*! vals 0.1.0 Copyright (c) 2013 Alan Plum. MIT licensed. @preserve */
+/*! vals 0.1.1 Original author Alan Plum <me@pluma.io>. Released into the Public Domain under the UNLICENSE. @preserve */
 (function(root){var require=function(key){return root[key];},module={};
-var isArray = Array.isArray || function(arr) {
+var isArray = function(arr) {
   return Object.prototype.toString.apply(arr) === '[object Array]';
 };
 

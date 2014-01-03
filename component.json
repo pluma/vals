@@ -9,7 +9,7 @@
     "accessor",
     "delve"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {},
   "devDependencies": {},
   "scripts": ["dist/vals.js"],
@@ -20,5 +20,5 @@
     "components",
     "node_modules"
   ],
-  "license": "MIT"
+  "license": "UNLICENSE"
 }

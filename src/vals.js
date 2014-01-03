@@ -1,4 +1,4 @@
-var isArray = Array.isArray || function(arr) {
+var isArray = function(arr) {
   return Object.prototype.toString.apply(arr) === '[object Array]';
 };
 

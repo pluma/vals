@@ -97,6 +97,6 @@ If `path` is an array, it will attempt to resolve the property path recursively.
 
 If the path can not be resolved fully, the return value will be `undefined`.
 
-# License
+# Unlicense
 
-The MIT/Expat license.
+This is free and unencumbered public domain software. For more information, see http://unlicense.org/ or the accompanying [UNLICENSE](https://github.com/pluma/sic/blob/master/UNLICENSE) file.
